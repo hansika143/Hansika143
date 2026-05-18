@@ -1,0 +1,24 @@
+name: Java CI Pipeline
+
+on:
+  push:
+    branches:
+  -main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/Checkout@v3
+       -name:Set up JDK 11
+        uses:actions/checkout@v3
+      
+       with:
+          distribution:'temurin'
+          java _version"11"
+       -name:Compile Java program
+       run:javacMain.java
+       -name:Run Java Program
+       run:java Main
