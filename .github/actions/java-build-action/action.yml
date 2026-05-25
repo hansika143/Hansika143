@@ -1,0 +1,25 @@
+name: 'Java Build Action'
+description: 'Builds a Java project using Ant in a specified directory'
+inputs:
+  workdir:
+    description: 'Working directory for the build'
+    required: false
+    default: '.'
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 11
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: '11'
+
+    - name: Build with Ant
+      run: |
+        echo "Building in '${{ inputs.workdir }}'"
+        cd "${{ inputs.workdir }}"
+        ant clean build
+      shell: bash
