@@ -46,11 +46,11 @@ jobs:
           java-version: '11'
           cache: ant
 
-      - name: Build Array_02 project
-        working-directory: "Array_ 02"
+      - name: Build Array_stack project
+        working-directory: "Array_stack"
         run: ant clean build
 
       - name: Run local java-build-action
         uses: ./.github/actions/java-build-action
         with:
-          workdir: "Array_ 02"
+          workdir: "Array_stack"
